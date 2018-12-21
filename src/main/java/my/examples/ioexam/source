@@ -1,0 +1,8 @@
+Hello.java 가 있는 곳에서 실행
+javac -d /tmp Hello.java
+
+/tmp/my/examples/first/Hello.class 폴더가 생긴다.
+
+java my.examples.first.Hello
+
+CLASSPATH가 /tmp 라고 되어 있으면 어디서든 아래와 같이 실행가능
