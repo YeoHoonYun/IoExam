@@ -6,3 +6,6 @@ javac -d /tmp Hello.java
 java my.examples.first.Hello
 
 CLASSPATH가 /tmp 라고 되어 있으면 어디서든 아래와 같이 실행가능
+
+static 메소드
+재귀 함수 사용
