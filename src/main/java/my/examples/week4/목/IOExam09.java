@@ -1,6 +1,4 @@
-package my.examples.week4;
-
-import jdk.internal.util.xml.impl.Input;
+package my.examples.week4.목;
 
 import java.io.*;
 
@@ -19,6 +17,7 @@ public class IOExam09 {
         String path = "naver.html";
         IOExam09 ioExam09 = new IOExam09();
 
+        // 걸린 시간을 구하는 함수
         long startTime = System.currentTimeMillis();
         ioExam09.byte1(path);
         long endTime = System.currentTimeMillis();

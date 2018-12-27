@@ -1,4 +1,4 @@
-package my.examples.week4;
+package my.examples.week4.목;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
