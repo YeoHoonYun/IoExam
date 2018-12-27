@@ -1,0 +1,77 @@
+# JAVA IO
+
+File 클래스에 대해 살펴봤다.
+프로그램은 입출력이 기본이다.
+
+입력은 어디에서 받을 수 있을까?
+ - 키보드
+ - 파일
+ - 메모리(예 : 배열)
+ - 네트워크
+
+출력은 어디에 할 수 있을까?
+ - 화면(System.out)
+ - 파일
+ - 메모리
+ - 네트워크
+
+## 특수한 IO (주인공)
+ - 항상 열려 있음. 닫을 필요가 없음.
+System.out : 표준 출력(PrintStream) - 화면
+System.in : 표준 입력(InputStream) - 키보드
+System.err : 표준 에러(PrintStream) - 화면
+
+리다이렉션 기호를 이용하여 출력과 입력 방향을 바꿀 수 있다.
+
+java IOExam > out.txt 2> err.txt
+> 표준 출력은 out.txt에 저장
+2> 표준 에러출력을 err.txt에 저장하라.
+>> 기존 파일에 추가하라.
+
+## 추상 클래스
+JAVA IO는 바이트 단위 입추력이 있고, 문자 단위 입출력이 있다.
+JAVA 처음 탄생했을 땐 byte 단위 입출력만 있었다.
+byte 단위 vs char 단위
+
+char단위는 사람이 보는 문자를 입출력 할때 사용한다.
+여하튼, byte 단위로도 모두 입출력 할 수 있다.
+
+ 바이트(1개 또는 배열)
+ - InputStream : byte를 읽어들이기 위한 Stream
+ - OutputStream : byte를 쓰기위한 Stream
+ 문자(1개 또는 배열)
+ - Reader : char를 읽어들이기 위한 Stream
+ - Writer : char를 쓰기 위한 Stream
+
+위의 추상 클래스는 1개 또는 배열 단위로 읽고 쓰는 메소드를 가지고 있다.
+ - 인스턴스는 될수 없지만 1개 또는 배열단위를 처리하는 메소드를 가지고 있다.
+
+## 주인공과 장식이 있다.
+ - 위의 4가지 추상 클래스를 상속 받고 있는 클래스 중에서 생성자에 위의 4가지 중 한가지를 받아들이는 생성자가 있는 클래스는 장식.
+ - 생성자에 추상 클래스를 넣는다는건 가지라는 것
+Ex) BufferedInputStream VS ByteArrayInputStream
+    장식                   주인공
+
+BufferedInputStream <= InputStream(바이트) <= 장식
+BUfferedOutputStream <= OutputStream(바이트) <= 장식
+BufferedReader <= Reader(문자) <= 장식
+BufferedWriter <= Writer(문자) <= 장식
+
+ByteArrayInputStream <= InputStream(바이트) <= 주인공
+ByteArrayOutputStream <= OutputStream(바이트) <= 주인공
+
+CharArrayReader <= reader(문자) <= 주인공
+CharArrayWriter <= writer(문자) <= 주인공
+
+ - 주인공은 어디에서 읽어 들일 것인가? 어디에서 쓸것인가? 를 결정하는 클래스
+ 한개나 배열 단위로 입력을 받겠다.
+
+ - 장식은 어떤 방법으로 읽고 쓸겄이가? 다양한 메소드를 제공하는 클래스
+ 정수, 한줄 단위로 입력을 받겠다.
+
+ 장식 밑에 또 상속받는 것이 있다면 그것을 데코레이터
+
+**
+
+ * 데코레이터
+ * 컴포지트 패턴

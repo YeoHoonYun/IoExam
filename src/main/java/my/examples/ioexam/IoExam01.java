@@ -1,14 +1,23 @@
 package my.examples.ioexam;
 
-import java.io.*;
+import java.io.File;
 
 /**
  * Created by cjswo9207u@gmail.com on 2018-12-21
  * Github : https://github.com/YeoHoonYun
  */
-public class IoExam01 {
+public class IoExam01 implements IOTest{
+    static File file = new File("D:\\10. java_web_programming\\testDir");
+    static File[] fileList = file.listFiles();
 
     public static void main(String[] args) {
+        System.out.println(file.getName());
+        for (File f: fileList){
+            System.out.println(f.getName());
+        }
+
+
+        System.out.println("------------------------------------------");
         // D:\10. java_web_programming\testDir
         // 1. 위의 폴더가 있는지 없는지 검사한다. 있으면 있다. 없으면 없다.
         // 2. 해당 경로가 파일인지, 폴더인지 검사한다. 파일이면 파일, 폴더면 폴더 출력
@@ -51,7 +60,7 @@ public class IoExam01 {
             }
         }
         System.out.println("-----------------------------------------------");
-        fileOutput(f);
+        fileOutput("",f);
         System.out.println("-----------------------------------------------");
         if(f.exists()){
             if(f.isFile()){
@@ -63,7 +72,7 @@ public class IoExam01 {
         }
     }
 
-    public static void fileOutput(File f) {
+    public static void fileOutput(String space,File f) {
 //         static한 메소드는 사용이 가능하다.
 //         this를 사용하기 위해서는 인스턴스가 참조가 되어야 한다.
         if(f.isFile()){
@@ -71,9 +80,10 @@ public class IoExam01 {
         }
         else if(f.isDirectory()){
             System.out.println(f.getName());
+            space = space + "---";
             for (File f2 : f.listFiles()){
-                System.out.print(f.getName()+"\\");
-                fileOutput(f2);
+                System.out.print(f.getName());
+                fileOutput(space,f2);
             }
         }
     }

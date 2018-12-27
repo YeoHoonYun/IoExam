@@ -9,3 +9,13 @@ CLASSPATH가 /tmp 라고 되어 있으면 어디서든 아래와 같이 실행�
 
 static 메소드
 재귀 함수 사용
+
+Composite 패턴
+
+Node <- Node
+     <- Folder
+
+** visitor : Composite 패턴을 탐색하는 패턴
+
+다이어리를 그려본다.
+ -
