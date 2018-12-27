@@ -53,25 +53,53 @@ Ex) BufferedInputStream VS ByteArrayInputStream
     장식                   주인공
 
 BufferedInputStream <= InputStream(바이트) <= 장식
-BUfferedOutputStream <= OutputStream(바이트) <= 장식
-BufferedReader <= Reader(문자) <= 장식
+BufferedOutputStream <= OutputStream(바이트) <= 장식
+BufferedReader <= Reader(문자) <= 장식 - readLine() 한줄 씩 입력 받는 메소드.
 BufferedWriter <= Writer(문자) <= 장식
+버퍼(Buffered) : 데이터를 보관하는 메모리의 영역
 
 ByteArrayInputStream <= InputStream(바이트) <= 주인공
 ByteArrayOutputStream <= OutputStream(바이트) <= 주인공
-
 CharArrayReader <= reader(문자) <= 주인공
 CharArrayWriter <= writer(문자) <= 주인공
 
- - 주인공은 어디에서 읽어 들일 것인가? 어디에서 쓸것인가? 를 결정하는 클래스
- 한개나 배열 단위로 입력을 받겠다.
+10000바이트의 문자 배열이 있습니다. 어떻게 읽어 들일 것인가?
 
- - 장식은 어떤 방법으로 읽고 쓸겄이가? 다양한 메소드를 제공하는 클래스
+DataInputStream - 장식 (다양한 데이터 타입을 읽고 쓴다. int, byte, long
+
+FileInputStream - 주인공
+Hello.java 에서 읽어 들어 들여서 데이터를 처리
+
+byte -> char로 바꾼다.
+InputStreamReader
+OutputStreamWriter
+
+객체 직렬화와 관련된 Stream
+ObjectInputStream - 장식
+ObjectOutputStream
+
+쓰레드와 같이 사용된다. 스트림을 연결하는 기능을 가지고 있다.
+PipedInputStream
+PipedReader
+
+다양한 print(), println()메소드를 제공한다.
+PrintStream
+PrintWriter
+
+문자열을 읽어들인다. - 주인공.
+StringBufferInputStream
+StringReader
+
+---------------------------------------------------------------------------
+
+ - 주인공은 어디에서 읽어 들일 것인가? 어디에서 쓸것인가? 를 결정하는 클래스
+ 바이트나 문자의 한개나 배열 단위로 입력을 받겠다.
+
+ - 장식은 어떤 방법으로 읽고 쓸 것인가? 다양한 메소드를 제공하는 클래스
  정수, 한줄 단위로 입력을 받겠다.
 
  장식 밑에 또 상속받는 것이 있다면 그것을 데코레이터
 
 **
-
  * 데코레이터
  * 컴포지트 패턴
